@@ -1,7 +1,8 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, ForeignKey, Text, Enum
+# models.py
+from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Text, Enum
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, UTC
 import enum
 
 Base = declarative_base()
@@ -21,8 +22,8 @@ class User(Base):
     role = Column(Enum(UserRole), default=UserRole.cook)
     status = Column(String, default="active")
     last_login = Column(DateTime)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
+    updated_at = Column(DateTime, default=lambda: datetime.now(UTC), onupdate=lambda: datetime.now(UTC))
 
     serving_logs = relationship("ServingLog", back_populates="user")
 
@@ -37,8 +38,8 @@ class Ingredient(Base):
     threshold = Column(Float)
     category = Column(String)
     cost = Column(Float)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
+    updated_at = Column(DateTime, default=lambda: datetime.now(UTC), onupdate=lambda: datetime.now(UTC))
 
     meal_ingredients = relationship("MealIngredient", back_populates="ingredient")
 
@@ -51,8 +52,8 @@ class Meal(Base):
     category = Column(String)
     servings = Column(Integer)
     preparation_time = Column(Integer)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
+    updated_at = Column(DateTime, default=lambda: datetime.now(UTC), onupdate=lambda: datetime.now(UTC))
 
     ingredients = relationship("MealIngredient", back_populates="meal")
     serving_logs = relationship("ServingLog", back_populates="meal")
@@ -78,7 +79,7 @@ class ServingLog(Base):
     portions = Column(Integer)
     status = Column(String)
     failure_reason = Column(Text)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=lambda: datetime.now(UTC))
 
     meal = relationship("Meal", back_populates="serving_logs")
     user = relationship("User", back_populates="serving_logs")
@@ -90,7 +91,7 @@ class Settings(Base):
     key = Column(String, unique=True, index=True)
     value = Column(Text)
     description = Column(Text)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, default=lambda: datetime.now(UTC), onupdate=lambda: datetime.now(UTC))
 
 class AuditLog(Base):
     __tablename__ = "audit_logs"
@@ -102,4 +103,4 @@ class AuditLog(Base):
     record_id = Column(Integer)
     old_values = Column(Text)
     new_values = Column(Text)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=lambda: datetime.now(UTC))
