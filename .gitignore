@@ -1,12 +1,20 @@
-# macOS system files
-.DS_Store
-
-# Python virtual environment folder
-.venv/
+# Python virtual environment folders
 venv/
+.venv/
 
-# Next.js build folder
+# Python cache files
+__pycache__/
+*.pyc
+
+# Next.js build directory
 .next/
 
-# SQLite database files
+# Database files
 *.db
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

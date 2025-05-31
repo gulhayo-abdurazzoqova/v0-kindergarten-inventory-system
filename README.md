@@ -1,30 +1,19 @@
-# Kindergarten inventory system
+Kindergarten Inventory System
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Overview
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/azamatovasmo1233-9068s-projects/v0-kindergarten-inventory-system)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/age1gGqOe38)
+This repository contains the source code for the Kindergarten Inventory System project.
 
-## Overview
+Live Deployment
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+The project is deployed and accessible online.
 
-## Deployment
+Development
 
-Your project is live at:
+Continue building and modifying your app using this repository.
 
-**[https://vercel.com/azamatovasmo1233-9068s-projects/v0-kindergarten-inventory-system](https://vercel.com/azamatovasmo1233-9068s-projects/v0-kindergarten-inventory-system)**
+How It Works
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/age1gGqOe38](https://v0.dev/chat/projects/age1gGqOe38)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Develop your project locally or remotely.
+Commit and push your changes to this repository.
+Deploy your latest version using your preferred deployment method.
